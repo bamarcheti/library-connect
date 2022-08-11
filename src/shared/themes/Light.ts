@@ -19,6 +19,13 @@ export const LightTheme = createTheme({
     background: {
       paper: '#ffffff',
       default: '#f7f6f3',
-    }
-  }
+    },
+  },
+  typography: {
+    h1: {
+      color: '#4F4F4F',
+      fontFamily: 'Roboto',
+      fontSize: '25px',
+    },
+  },
 });

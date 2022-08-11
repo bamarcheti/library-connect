@@ -19,11 +19,15 @@ export const DarkTheme = createTheme({
     background: {
       paper: '#303134',
       default: '#202124',
-    }
+    },
   },
   typography: {
     allVariants: {
       color: 'white',
-    }
-  }
+    },
+    h1: {      
+      fontFamily: 'Roboto',
+      fontSize: '25px',
+    },
+  },
 });

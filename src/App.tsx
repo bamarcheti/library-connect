@@ -1,9 +1,9 @@
 /* eslint-disable linebreak-style */
-import React, { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import { AppThemeProvider } from './shared/contexts';
-import { MenuTopo } from './shared/components/menu-topo/MenuTopo';
 import { AppRoutes } from './routes';
+import { AppThemeProvider } from './shared/contexts';
+import MainLayout from './shared/layouts/MainLayout';
 
 
 export const App = () => {
@@ -11,9 +11,9 @@ export const App = () => {
     // eslint-disable-next-line react/jsx-filename-extension
     <AppThemeProvider>
       <BrowserRouter>
-        <MenuTopo>
+        <MainLayout>
           <AppRoutes />
-        </MenuTopo>
+        </MainLayout>
       </BrowserRouter>
     </AppThemeProvider>
   );
