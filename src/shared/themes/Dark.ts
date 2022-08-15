@@ -11,9 +11,9 @@ export const DarkTheme = createTheme({
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: blue[300],
-      dark: blue[400],
-      light: blue[200],
+      main: '#64b5f6',
+      dark: '#42a5f5',
+      light: '#90caf9',
       contrastText: '#FFFFFF',
     },
     background: {
@@ -23,11 +23,17 @@ export const DarkTheme = createTheme({
   },
   typography: {
     allVariants: {
-      color: 'white',
+      color: '#FFFFFF',
     },
     h1: {      
       fontFamily: 'Roboto',
       fontSize: '25px',
+    },
+    h2: {
+      fontFamily: 'Roboto',
+      fontStyle: 'medium',
+      fontSize: '14px',
+      lineHeight: '24px'
     },
   },
 });

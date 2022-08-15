@@ -1,16 +1,16 @@
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import AuthorForm from './AuthorForm/AuthorForm';
-import AuthorsTable from './AuthorsTable/AuthorsTable';
+import BookForm from './BookForm/BookForm';
+import BookTable from './BookTable/BookTable';
 
-const AuthorPage = () => {
+const BookPage = () => {
   return (
     <Box padding={5}>
       <Typography 
         variant="h1"
       >
-        GERENCIAR AUTORES
+        GERENCIAR LIVROS
       </Typography>
 
       <Grid
@@ -22,15 +22,15 @@ const AuthorPage = () => {
         spacing={2}
       >
         <Grid item xs={6}>
-          <AuthorForm />
+          <BookForm />
         </Grid>
 
         <Grid item xs={6}>
-          <AuthorsTable />
+          <BookTable />
         </Grid>
       </Grid>
     </Box>
   );
 };
 
-export default AuthorPage;
+export default BookPage;

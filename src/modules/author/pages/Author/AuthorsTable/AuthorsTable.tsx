@@ -1,54 +1,58 @@
 import {
-  Divider, List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Typography
+  Card,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
 } from '@mui/material';
-import React from 'react';
+
+function createData(
+  name: string,
+  qtdBooks: number,
+) {
+  return { name, qtdBooks };
+}
+
+const rows = [
+  createData('Robert C. Martin', 4),
+  createData('Autor', 5),
+  createData('Autor 2', 2),
+  createData('Martin Fowler', 1),
+  createData('Michael Feathers', 7),
+  createData('Kent Beck', 3),
+  createData('Erich Gama', 4),
+  createData('Loiane', 9),
+];
 
 const AuthorsTable = () => {
   return (
-    <List
-      sx={{
-        width: '100%',
-        maxWidth: 360,
-        bgcolor: 'background.paper',
-      }}
-    >
-      <ListItem>
-        <ListItemAvatar>
-          <ListItemText
-            primary="Brunch this weekend?"
-            secondary={
-              <React.Fragment>
-                <Typography
-                  sx={{ display: 'inline' }}
-                  component="span"
-                  variant="body2"
-                  color="text.primary"
-                >
-                  Ali Connors
-                </Typography>
-                {' — I\'ll be in your neighborhood doing errands this…'}
-              </React.Fragment>
-            }
-          />
-        </ListItemAvatar>
-      </ListItem>
-
-      <Divider variant="inset" component="li" />
-
-      <ListItem>
-        <ListItemAvatar></ListItemAvatar>
-        <ListItemText primary="Work" secondary="Jan 7, 2014" />
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar></ListItemAvatar>
-        <ListItemText primary="Vacation" secondary="July 20, 2014" />
-      </ListItem>
-    </List>
+    <Card>
+      <TableContainer>
+        <Table sx={{ minWidth: 488 }} size="small" aria-sort="none">
+          <TableHead>
+            <TableRow>
+              <TableCell >Nome</TableCell>
+              <TableCell align="center">Quantidade de livros</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" >{row.name}</TableCell>
+                <TableCell align="center">{row.qtdBooks}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Card>
   );
 };
+
 
 export default AuthorsTable;
