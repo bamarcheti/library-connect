@@ -25,6 +25,10 @@ class AuthorService {
       qtdBooks: qtdBooksRandom,
     });
   }
+  
+  async getAuthors(){
+    return this.authors;
+  }
 }
 
 export default new AuthorService();

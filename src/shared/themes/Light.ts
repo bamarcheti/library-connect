@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material';
-import { blue } from '@mui/material/colors';
 
 export const LightTheme = createTheme({
   palette: {
@@ -11,13 +10,13 @@ export const LightTheme = createTheme({
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: blue[300],
-      dark: blue[400],
-      light: blue[200],
+      main: '#64b5f6',
+      dark: '#42a5f5',
+      light: '#90caf9',
       contrastText: '#FFFFFF',
     },
     background: {
-      paper: '#ffffff',
+      paper: '#FFFFFF',
       default: '#f7f6f3',
     },
   },
@@ -26,6 +25,14 @@ export const LightTheme = createTheme({
       color: '#4F4F4F',
       fontFamily: 'Roboto',
       fontSize: '25px',
+      fontStyle: 'bold',
+      lineHeight: '24px'
+    },
+    h2: {
+      fontFamily: 'Roboto',
+      fontStyle: 'medium',
+      fontSize: '14px',
+      lineHeight: '24px'
     },
   },
 });

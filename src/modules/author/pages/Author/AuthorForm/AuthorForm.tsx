@@ -21,7 +21,7 @@ const AuthorForm = () => {
   };
 
   return (
-    <Card sx={{ maxWidth: 400 }} variant="outlined">
+    <Card sx={{ maxWidth: 488 }} variant="outlined">
       <CardContent>
         <Typography
           gutterBottom
@@ -34,6 +34,7 @@ const AuthorForm = () => {
         </Typography>
 
         <TextField
+          fullWidth
           label="Nome do Autor"
           value={name}
           onChange={(event) => setName(event.target.value)}
