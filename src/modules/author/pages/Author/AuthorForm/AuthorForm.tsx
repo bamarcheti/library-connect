@@ -21,13 +21,11 @@ const AuthorForm = () => {
   };
 
   return (
-    <Card sx={{ maxWidth: 488 }} variant="outlined">
+    <Card sx={{ maxWidth: 600 }} variant="outlined">
       <CardContent>
         <Typography
           gutterBottom
           variant="h2"
-          fontFamily="Roboto"
-          fontSize="14px"
           marginBottom={4}
         >
           CRIAR NOVO AUTOR
