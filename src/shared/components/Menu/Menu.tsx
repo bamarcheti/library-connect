@@ -18,6 +18,7 @@ export const Menu = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const { toggleTheme } = useAppThemeContext();
+  const navigate = useNavigate();
 
   return (
     <Box>
@@ -42,8 +43,8 @@ export const Menu = () => {
             )}
           </IconButton>
         </Stack>
-        <BottomNavigationAction label="AUTORES" />
-        <BottomNavigationAction label="LIVROS" />
+        <BottomNavigationAction label="AUTORES" onClick={() => {navigate('/authors');}} />
+        <BottomNavigationAction label="LIVROS" onClick={() => {navigate('/books');}} />
       </BottomNavigation>
     </Box>
   );
