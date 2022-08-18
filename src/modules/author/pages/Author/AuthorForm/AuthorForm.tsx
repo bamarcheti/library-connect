@@ -12,7 +12,7 @@ import { CreateAuthorDto } from '../../../dtos/CreateAuthorDto';
 import authorService from '../../../services/authorService';
 
 const AuthorForm = () => {
-  const [name, setName] = useState('Robert C. Martin');
+  const [name, setName] = useState('');
 
   const createAuthor = async () => {
     const author: CreateAuthorDto = { name };    

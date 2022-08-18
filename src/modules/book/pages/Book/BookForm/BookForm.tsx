@@ -6,28 +6,37 @@ import { CreateBookDto } from '../../../dtos/CreateBookDto';
 import bookService from '../../../services/bookService';
 
 const BookForm = () => {
-  const [authorName, setAuthorName] = useState('');
+  // const [authorName, setAuthorName] = useState('');
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const [checked, setChecked] = React.useState(false);
 
+  const [book, setBook] = useState({
+    title: '',
+    qtdPages: 0,
+    authorName: '',
+    digital: false,
+    size: 0,
+    kindleCompatible: false
+  });
+  
   const createBook = async () => {
-    const book: CreateBookDto = {
-      authorName,
-      title: '',
-      qtdPages: 0,
-      digital: false,
-      size: 0,
-      kindleCompatible: false
-    };
+    // const book: CreateBookDto = {
+    //   authorName,
+    //   title: '',
+    //   qtdPages: 0,
+    //   digital: false,
+    //   size: 0,
+    //   kindleCompatible: false
+    // };
     const response = await bookService.create(book);
   };
 
   const selecthandleChange = (event: SelectChangeEvent) => {
-    setAuthorName(event.target.value as string);
+    setBook({ ...book, authorName: event.target.value });
   };
 
   const checkhandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
+    setBook({ ...book, authorName: event.target.value });
   };
 
   return (
@@ -45,12 +54,15 @@ const BookForm = () => {
           <TextField
             fullWidth
             label="Título"
-            onChange={(event) => setAuthorName(event.target.value)}
+            value={book.title}
+            onChange={(event) => setBook({ ...book, title: event.target.value })}
           />
 
           <TextField
             fullWidth
             label="Qtd páginas"
+            value={book.qtdPages}
+            onChange={(event) => setBook ({ ...book, qtdPages: Number(event.target.value) })}
           />
 
           <FormControl fullWidth>
@@ -58,30 +70,40 @@ const BookForm = () => {
             <Select
               labelId='demo-simple-select-label'
               id='demo-simple-select'
-              value={authorName}
+              value={book.authorName}
               label='Autor'
               onChange={selecthandleChange}
             >
-              <MenuItem value={10}>Robert C. Martin</MenuItem>
-              <MenuItem value={20}>Teste 2</MenuItem>
-              <MenuItem value={30}>Teste 3</MenuItem>
+              <MenuItem value={'Robert C. Martin'}>Robert C. Martin</MenuItem>
+              <MenuItem value={'Teste 2'}>Teste 2</MenuItem>
+              <MenuItem value={'Teste 3'}>Teste 3</MenuItem>
             </Select>
           </FormControl>
 
-          <FormControlLabel 
-            control={<Checkbox {...label} />} 
+          {/* <FormControlLabel 
+            control={
+              <Checkbox 
+                {
+                  ...label 
+                  checked={book.digital}
+                  onChange={(event) => setBook ({ ...book, digital: event.target.checked})}
+                } 
+              />
+            } 
             label="É digital?"
-          />
+          /> */}
 
           <TextField
             fullWidth
             label="Tamanho em KBytes"
+            value={book.size}
+            onChange={(event) => setBook ({ ...book, size: Number(event.target.value) })}
           />
 
           <FormControlLabel
             control={
               <Switch
-                checked={checked}
+                checked={book.kindleCompatible}
                 onChange={checkhandleChange}
               />
             } 

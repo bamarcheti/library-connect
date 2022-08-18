@@ -27,7 +27,7 @@ const rows = [
   createData('Estrutura de dados ', 9, 'Loiane'),
 ];
 
-const BookForm = () => {
+const BookTable = () => {
 
   return (
     <Card>
@@ -58,4 +58,4 @@ const BookForm = () => {
   );
 };
 
-export default BookForm;
+export default BookTable;
