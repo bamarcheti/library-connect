@@ -27,6 +27,16 @@ const rows = [
 ];
 
 const AuthorsTable = () => {
+  // const [authorsList, setAuthorsList] = useEffect<any>([]);
+
+  // useEffect(() => {
+  //   const getAuthors = async() => {
+  //     const response = await authorService.getAuthors();
+  //     setAuthorsList(response);
+  //   }
+  //   getAuthors();
+  // }, []);
+
   return (
     <Card>
       <TableContainer>
@@ -38,13 +48,13 @@ const AuthorsTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {rows.map((author) => (
               <TableRow
-                key={row.name}
+                key={author.name}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" >{row.name}</TableCell>
-                <TableCell align="center">{row.qtdBooks}</TableCell>
+                <TableCell component="th" >{author.name}</TableCell>
+                <TableCell align="center">{author.qtdBooks}</TableCell>
               </TableRow>
             ))}
           </TableBody>
