@@ -7,7 +7,6 @@ import bookService from '../../../services/bookService';
 
 const BookForm = () => {
   // const [authorName, setAuthorName] = useState('');
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const [checked, setChecked] = React.useState(false);
 
   const [book, setBook] = useState({
@@ -80,18 +79,17 @@ const BookForm = () => {
             </Select>
           </FormControl>
 
-          {/* <FormControlLabel 
+          <FormControlLabel  
             control={
-              <Checkbox 
-                {
-                  ...label 
-                  checked={book.digital}
-                  onChange={(event) => setBook ({ ...book, digital: event.target.checked})}
-                } 
+              <Checkbox
+                // {...label}
+                checked={book.digital}
+                onChange={(event) => setBook({ ...book, digital: Boolean(event.target.checked ? 'Sim' : 'Nao') })} 
               />
-            } 
-            label="É digital?"
-          /> */}
+            }
+            label="É digital? "
+          /> 
+            
 
           <TextField
             fullWidth

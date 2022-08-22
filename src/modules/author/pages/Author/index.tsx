@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import AuthorForm from './AuthorForm/AuthorForm';
 import AuthorsTable from './AuthorsTable/AuthorsTable';
+import './style.css';
 
 const AuthorPage = () => {
   return (
