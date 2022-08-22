@@ -33,7 +33,7 @@ const AuthorsTable = () => {
   //   const getAuthors = async() => {
   //     const response = await authorService.getAuthors();
   //     setAuthorsList(response);
-  //   }
+  //   };
   //   getAuthors();
   // }, []);
 
