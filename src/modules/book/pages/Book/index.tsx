@@ -1,45 +1,30 @@
-import { FormGroup, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import { Card } from '@mui/material';
 import BookForm from './BookForm/BookForm';
 import BookTable from './BookTable/BookTable';
+import './style.css';
 
 const BookPage = () => {
   return (
-    <FormGroup>
-      <Box
-        padding={5}
-        margin={1}
-        display="flex" 
-        flexDirection="column"
-      >
-        <Typography 
-          variant="h1"
-        >
-          GERENCIAR LIVROS
-        </Typography>
+    <div className='boxBook'
+    >
+      <h1>GERENCIAR LIVROS</h1>
 
-        <Grid
-          sx={{ width: '100%' }}
-          style={{
-            paddingTop: 20,
-          }}
-          container item
-          direction="row"
-          justifyContent="flex-end"
-          alignItems="baseline"
-          spacing={2}
+      <div>
+        <Card
+          className='cardLeftBook'
+          variant="outlined"
         >
-          <Grid item xs={6} md={6}>
-            <BookForm />
-          </Grid>
+          <BookForm />
+        </Card>
 
-          <Grid item xs={6} md={6}>
-            <BookTable />
-          </Grid>
-        </Grid>
-      </Box>
-    </FormGroup>
+        <Card
+          className='cardRightBook'
+          variant="outlined"
+        >
+          <BookTable />
+        </Card>
+      </div>
+    </div>
   );
 };
 

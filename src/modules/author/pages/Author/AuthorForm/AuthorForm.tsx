@@ -21,15 +21,10 @@ const AuthorForm = () => {
   };
 
   return (
-    <Card sx={{ maxWidth: 600 }} variant="outlined">
+    <Card className='formAuthor'>
       <CardContent>
-        <Typography
-          gutterBottom
-          variant="h2"
-          marginBottom={4}
-        >
-          CRIAR NOVO AUTOR
-        </Typography>
+        
+        <h2>CRIAR NOVO AUTOR</h2>
 
         <TextField
           fullWidth
@@ -40,7 +35,11 @@ const AuthorForm = () => {
       </CardContent>
       <CardActions>
         <Stack>
-          <Button variant="contained" size="small" onClick={createAuthor}>
+          <Button 
+            variant="contained" 
+            size="small" 
+            onClick={createAuthor}
+          >
             Salvar
           </Button>
         </Stack>
