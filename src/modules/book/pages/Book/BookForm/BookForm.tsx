@@ -4,6 +4,7 @@ import { Button, Card, CardActions, CardContent, FormControl, FormControlLabel, 
 import React, { useState } from 'react';
 import { CreateBookDto } from '../../../dtos/CreateBookDto';
 import bookService from '../../../services/bookService';
+import '../BookForm/style.css';
 
 const BookForm = () => {
   // const [authorName, setAuthorName] = useState('');
@@ -39,19 +40,15 @@ const BookForm = () => {
   };
 
   return (
-    <FormGroup>
-      <Card sx={{ maxWidth: 600, direction: 'column' }} variant="outlined">
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant='h2'
-            marginBottom={4}
-          >
-            CRIAR NOVO LIVRO
-          </Typography>
+    <FormGroup className='formBook'>
+      <Card className='formBook'>
+        <CardContent className='formBook'>
+          
+          <h2>CRIAR NOVO LIVRO</h2>
 
           <TextField
             fullWidth
+            className='input'
             label="Título"
             value={book.title}
             onChange={(event) => setBook({ ...book, title: event.target.value })}
@@ -59,12 +56,13 @@ const BookForm = () => {
 
           <TextField
             fullWidth
+            className='input'
             label="Qtd páginas"
             value={book.qtdPages}
             onChange={(event) => setBook ({ ...book, qtdPages: Number(event.target.value) })}
           />
 
-          <FormControl fullWidth>
+          <FormControl fullWidth className='input'>
             <InputLabel id='demo-simple-select-label'>Autor</InputLabel>
             <Select
               labelId='demo-simple-select-label'
@@ -87,12 +85,13 @@ const BookForm = () => {
                 onChange={(event) => setBook({ ...book, digital: Boolean(event.target.checked ? 'Sim' : 'Nao') })} 
               />
             }
+            className='input'
             label="É digital? "
           /> 
-            
 
           <TextField
             fullWidth
+            className='input'
             label="Tamanho em KBytes"
             value={book.size}
             onChange={(event) => setBook ({ ...book, size: Number(event.target.value) })}
@@ -104,22 +103,20 @@ const BookForm = () => {
                 checked={book.kindleCompatible}
                 onChange={checkhandleChange}
               />
-            } 
+            }
+            className='input'
             label="Compativel Kindle" 
           />
         </CardContent>
 
         <CardActions>
-          <Stack>
-            <Button 
-              style={{ alignItems: 'flex-end' }}
-              variant="contained" 
-              size="small" 
-              onClick={createBook}
-            >
-              Salvar
-            </Button>
-          </Stack>
+          <Button
+            size='small'
+            variant="contained"
+            onClick={createBook}
+          >
+            Salvar
+          </Button>
         </CardActions>
       </Card>
     </FormGroup>

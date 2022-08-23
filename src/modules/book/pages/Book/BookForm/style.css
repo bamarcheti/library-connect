@@ -1,0 +1,25 @@
+.formBook{
+    width: auto;
+    height: auto;
+}
+
+h2{
+    justify-content: left;
+    display: flex;
+    font-size: 14px;
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+}
+
+.input{
+    /* box-sizing: border-box;
+
+    position: absolute;
+    width: 430px;
+    height: 41.78px;
+    left: 71px;
+    top: 271.22px;
+
+    border: 1px solid rgba(0, 0, 0, 0.36);
+    border-radius: 4px; */
+}

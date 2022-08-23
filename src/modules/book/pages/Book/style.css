@@ -1,4 +1,4 @@
-.boxAuthor{
+.boxBook{
     position: absolute;
     width: auto;
     height: auto;
@@ -11,17 +11,26 @@
     color: #4F4F4F;
 }
 
-.h1{
+h1{
     justify-content: left;
     display: flex;
     font-size: 25px;
     font-family: 'Roboto';
 }
 
-.cardLeftAuthor{
+.cardLeftBook{
+    /* color: #000000;
+    justify-content: left;
+    display: flex;
+    margin-left: 41px;
+    margin-top: 30px;
+    width: 488px;
+    height: 526px;
+    border-radius: 6px; */
+
     position: absolute;
     width: 488px;
-    height: 173px;
+    height: 421px;
     left: 41px;
     top: 120px;
 
@@ -29,7 +38,15 @@
     border-radius: 6px;
 }
 
-.cardRightAuthor{
+.cardRightBook{
+    /* color: #000000;
+    justify-content: flex-end;
+    display: flex;
+    margin-left: 700px;
+    margin-top: -440px;
+    width: 488px;
+    height: 310px; */
+
     position: absolute;
     width: 488px;
     height: 300px;

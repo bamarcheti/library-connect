@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material';
-import { blue } from '@mui/material/colors';
 
 export const DarkTheme = createTheme({
   palette: {
@@ -28,6 +27,7 @@ export const DarkTheme = createTheme({
     h1: {      
       fontFamily: 'Roboto',
       fontSize: '25px',
+      color: '#FFFFFF',
     },
     h2: {
       fontFamily: 'Roboto',

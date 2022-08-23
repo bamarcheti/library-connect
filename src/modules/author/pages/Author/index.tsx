@@ -1,24 +1,29 @@
-import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import { Card, Typography } from '@mui/material';
 import AuthorForm from './AuthorForm/AuthorForm';
 import AuthorsTable from './AuthorsTable/AuthorsTable';
 import './style.css';
 
 const AuthorPage = () => {
   return (
-    <div className='body'>
-      <Typography variant="h1">
+    <div className='boxAuthor'>
+      <Typography className='h1' variant="h1">
         GERENCIAR AUTORES
       </Typography>
 
-      <div className='body-cards'>
-        <Grid>
+      <div>
+        <Card
+          className='cardLeftAuthor'
+          variant="outlined"
+        >
           <AuthorForm />
-        </Grid>
+        </Card>
 
-        <Grid>
+        <Card
+          className='cardRightAuthor'
+          variant="outlined"
+        >
           <AuthorsTable />
-        </Grid>
+        </Card>
       </div>
     </div>
   );
