@@ -19,40 +19,21 @@ h1{
 }
 
 .cardLeftBook{
-    /* color: #000000;
-    justify-content: left;
-    display: flex;
-    margin-left: 41px;
-    margin-top: 30px;
-    width: 488px;
-    height: 526px;
-    border-radius: 6px; */
-
     position: absolute;
-    width: 488px;
-    height: 421px;
+    width: 510px;
+    height: 480px;
     left: 41px;
     top: 120px;
 
-    background: #FFFFFF;
     border-radius: 6px;
 }
 
 .cardRightBook{
-    /* color: #000000;
-    justify-content: flex-end;
-    display: flex;
-    margin-left: 700px;
-    margin-top: -440px;
-    width: 488px;
-    height: 310px; */
-
     position: absolute;
     width: 488px;
     height: 300px;
     left: 589px;
     top: 120px;
 
-    background: #FFFFFF;
     border-radius: 6px;
 }
