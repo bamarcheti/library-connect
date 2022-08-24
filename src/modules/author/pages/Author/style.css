@@ -21,7 +21,7 @@
 .cardLeftAuthor{
     position: absolute;
     width: 488px;
-    height: 173px;
+    height: auto;
     left: 41px;
     top: 120px;
 
@@ -32,7 +32,7 @@
 .cardRightAuthor{
     position: absolute;
     width: 488px;
-    height: 300px;
+    height: auto;
     left: 589px;
     top: 120px;
 

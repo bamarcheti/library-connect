@@ -22,13 +22,17 @@ export const LightTheme = createTheme({
   },
   typography: {
     h1: {
-      color: '#4F4F4F',
       fontFamily: 'Roboto',
+      fontStyle: 'normal',
       fontSize: '25px',
-      fontStyle: 'bold',
-      lineHeight: '24px'
+
+      display: 'flex',
+      alignItems: 'flex-end',
+
+      color: '#4F4F4F',
     },
     h2: {
+      color: '#4F4F4F',
       fontFamily: 'Roboto',
       fontStyle: 'medium',
       fontSize: '14px',

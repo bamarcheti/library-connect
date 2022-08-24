@@ -30,5 +30,4 @@ class AuthorService {
     return this.authors;
   }
 }
-
 export default new AuthorService();

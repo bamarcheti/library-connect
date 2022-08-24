@@ -21,7 +21,7 @@ h1{
 .cardLeftBook{
     position: absolute;
     width: 510px;
-    height: 480px;
+    height: auto;
     left: 41px;
     top: 120px;
 
@@ -31,7 +31,7 @@ h1{
 .cardRightBook{
     position: absolute;
     width: 488px;
-    height: 300px;
+    height: auto;
     left: 589px;
     top: 120px;
 

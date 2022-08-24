@@ -6,22 +6,14 @@ import './style.css';
 const AuthorPage = () => {
   return (
     <div className='boxAuthor'>
-      <Typography className='h1' variant="h1">
-        GERENCIAR AUTORES
-      </Typography>
+      <Typography variant='h1' padding={4}>GERENCIAR AUTORES</Typography>
 
       <div>
-        <Card
-          className='cardLeftAuthor'
-          variant="outlined"
-        >
+        <Card className='cardLeftAuthor' variant="outlined">
           <AuthorForm />
         </Card>
 
-        <Card
-          className='cardRightAuthor'
-          variant="outlined"
-        >
+        <Card className='cardRightAuthor' variant="outlined">
           <AuthorsTable />
         </Card>
       </div>
