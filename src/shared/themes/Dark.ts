@@ -21,15 +21,18 @@ export const DarkTheme = createTheme({
     },
   },
   typography: {
-    allVariants: {
-      color: '#FFFFFF',
-    },
-    h1: {      
+    h1: {
       fontFamily: 'Roboto',
+      fontStyle: 'normal',
       fontSize: '25px',
+
+      display: 'flex',
+      alignItems: 'flex-end',
+
       color: '#FFFFFF',
     },
     h2: {
+      color: '#FFFFFF',
       fontFamily: 'Roboto',
       fontStyle: 'medium',
       fontSize: '14px',

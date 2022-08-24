@@ -8,15 +8,14 @@ class BookService {
   }
 
   async create(createDto: CreateBookDto) {
-    const qtdPagesRandom = Math.floor(Math.random() * 10);
 
     this.books.push({
-      authorName: createDto.authorName,
       title: createDto.title,
+      qtdPages: createDto.qtdPages,
+      authorName: createDto.authorName,
       digital: createDto.digital,
-      kindleCompatible: createDto.kindleCompatible,
-      qtdPages: qtdPagesRandom,
       size: createDto.size,
+      kindleCompatible: createDto.kindleCompatible,
     });
   }
 

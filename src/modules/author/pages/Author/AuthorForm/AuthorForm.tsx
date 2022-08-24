@@ -3,9 +3,9 @@ import {
   Card,
   CardActions,
   CardContent,
+  Grid,
   Stack,
   TextField,
-  Typography
 } from '@mui/material';
 import { useState } from 'react';
 import { CreateAuthorDto } from '../../../dtos/CreateAuthorDto';
@@ -26,12 +26,16 @@ const AuthorForm = () => {
         
         <h2>CRIAR NOVO AUTOR</h2>
 
-        <TextField
-          fullWidth
-          label="Nome do Autor"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
+        <Grid container direction="column" padding={2} spacing={2}>
+          <Grid container item direction="row">
+            <TextField
+              fullWidth
+              label="Nome do Autor"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </Grid>
+        </Grid>
       </CardContent>
       <CardActions>
         <Stack>
