@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { 
   Card, 
   Table, 
@@ -7,27 +8,18 @@ import {
   TableHead, 
   TableRow 
 } from '@mui/material';
-
-function createData(
-  title: string,
-  qtdPages: number,
-  authorName: string,
-) {
-  return { title, qtdPages, authorName };
-}
-
-const rows = [
-  createData('Clean Code', 4, 'Robert C. Martin'),
-  createData('Clean Coder', 5, 'Robert C. Martin'),
-  createData('Padrões de Projetos', 2, 'Erich Gama'),
-  createData('Driven Domain Design', 1, 'Eric Evans'),
-  createData('Refatoração', 7, 'Martin Fowler'),
-  createData('Lean Inception', 3, 'Paulo Caroli'),
-  createData('Clean Architecture', 4, 'Robert C. Martin'),
-  createData('Estrutura de dados ', 9, 'Loiane'),
-];
+import bookService, { Book } from '../../../services/bookService';
 
 const BookTable = () => {
+  const [bookList, setBookList] = useState<Book[]>([]);
+
+  useEffect(() => {
+    const getBooks =async () => {
+      const response = await bookService.getBooks();
+      setBookList(response);
+    };
+    getBooks();
+  }, []);
 
   return (
     <Card>
@@ -41,14 +33,14 @@ const BookTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {bookList.map((book) => (
               <TableRow
-                key={row.title}
+                key={book.title}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" >{row.title}</TableCell>
-                <TableCell align="center">{row.qtdPages}</TableCell>
-                <TableCell align="center">{row.authorName}</TableCell>
+                <TableCell component="th" >{book.title}</TableCell>
+                <TableCell align="center">{book.qtdPages}</TableCell>
+                <TableCell align="center">{book.authorName}</TableCell>
               </TableRow>
             ))}
           </TableBody>

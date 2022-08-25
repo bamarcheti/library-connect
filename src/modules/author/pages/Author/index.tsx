@@ -1,12 +1,26 @@
-import { Card, Typography } from '@mui/material';
+import { Card } from '@mui/material';
+// import MainTitle from '../../../../shared/components/MainTitle/MainTitle';
 import AuthorForm from './AuthorForm/AuthorForm';
 import AuthorsTable from './AuthorsTable/AuthorsTable';
+import { useEffect, useState } from 'react';
+import authorService, { Author } from '../../services/authorService';
 import './style.css';
 
+
 const AuthorPage = () => {
+  // const [authorsList, setAuthorsList] = useState<Author[]>([]);
+
+  // useEffect(() => {
+  //   const getAuthors = async () => {
+  //     const response = await authorService.getAuthors();
+  //     setAuthorsList(response);
+  //   };
+  //   getAuthors();
+  // }, []);
+
   return (
     <div className='boxAuthor'>
-      <Typography variant='h1' padding={4}>GERENCIAR AUTORES</Typography>
+      {/* <MainTitle title="Autores" onChange={} /> */}
 
       <div>
         <Card className='cardLeftAuthor' variant="outlined">
@@ -14,7 +28,7 @@ const AuthorPage = () => {
         </Card>
 
         <Card className='cardRightAuthor' variant="outlined">
-          <AuthorsTable />
+          <AuthorsTable  />
         </Card>
       </div>
     </div>
