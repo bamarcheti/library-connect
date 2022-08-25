@@ -1,5 +1,15 @@
 import { CreateBookDto } from '../dtos/CreateBookDto';
 
+export type Book =
+{
+  title: string; 
+  qtdPages: number; 
+  authorName: string; 
+  digital: boolean;
+  size: number; 
+  kindleCompatible: boolean;
+}
+
 class BookService {
   private books: any[];
 
@@ -8,7 +18,7 @@ class BookService {
   }
 
   async create(createDto: CreateBookDto) {
-
+    console.log(createDto);
     this.books.push({
       title: createDto.title,
       qtdPages: createDto.qtdPages,

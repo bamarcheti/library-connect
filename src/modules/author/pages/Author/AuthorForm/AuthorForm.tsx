@@ -4,12 +4,12 @@ import {
   CardActions,
   CardContent,
   Grid,
-  Stack,
   TextField,
 } from '@mui/material';
 import { useState } from 'react';
 import { CreateAuthorDto } from '../../../dtos/CreateAuthorDto';
 import authorService from '../../../services/authorService';
+import './style.css';
 
 const AuthorForm = () => {
   const [name, setName] = useState('');
@@ -38,7 +38,7 @@ const AuthorForm = () => {
         </Grid>
       </CardContent>
       <CardActions>
-        <Stack>
+        <div className='container-button' >
           <Button 
             variant="contained" 
             size="small" 
@@ -46,7 +46,7 @@ const AuthorForm = () => {
           >
             Salvar
           </Button>
-        </Stack>
+        </div>
       </CardActions>
     </Card>
   );

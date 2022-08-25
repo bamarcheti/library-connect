@@ -2,7 +2,6 @@ import Checkbox from '@mui/material/Checkbox';
 import Switch from '@mui/material/Switch';
 import { Button, Card, CardActions, CardContent, FormControl, FormControlLabel, FormGroup, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, Stack, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { CreateBookDto } from '../../../dtos/CreateBookDto';
 import bookService from '../../../services/bookService';
 import '../BookForm/style.css';
 
@@ -20,15 +19,7 @@ const BookForm = () => {
   });
   
   const createBook = async () => {
-    const book: CreateBookDto = {
-      title: '',
-      qtdPages: 0,
-      authorName: '',
-      digital: false,
-      size: 0,
-      kindleCompatible: false
-    };
-    const response = await bookService.create(book);
+    const response = await bookService.create(bookForm);
     console.log(response);
   };
 

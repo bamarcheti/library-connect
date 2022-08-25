@@ -1,4 +1,7 @@
+
 import { CreateAuthorDto } from '../dtos/CreateAuthorDto';
+
+export type Author = {name: string; qtdBooks: number; }
 
 class AuthorService {
   private authors: any[];
