@@ -11,13 +11,17 @@ import { CreateAuthorDto } from '../../../dtos/CreateAuthorDto';
 import authorService from '../../../services/authorService';
 import './style.css';
 
-const AuthorForm = () => {
+type Props = {
+  onChange: (author: CreateAuthorDto) => void
+};
+
+const AuthorForm: React.FC<Props> = ({ onChange }) => {
   const [name, setName] = useState('');
 
   const createAuthor = async () => {
     const author: CreateAuthorDto = { name };    
-    const response = await authorService.create(author);
-    console.log(response);
+    await authorService.create(author);
+    onChange(author);
   };
 
   return (

@@ -1,15 +1,34 @@
+import { 
+  Button, 
+  Card, 
+  CardActions, 
+  CardContent, 
+  FormControl, 
+  FormControlLabel, 
+  FormGroup, 
+  Grid, 
+  InputLabel, 
+  MenuItem, 
+  Select, 
+  SelectChangeEvent, 
+  TextField
+} from '@mui/material';
+import React, { useState, useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import Switch from '@mui/material/Switch';
-import { Button, Card, CardActions, CardContent, FormControl, FormControlLabel, FormGroup, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, Stack, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
 import bookService from '../../../services/bookService';
-import '../BookForm/style.css';
+import authorService, { Author } from '../../../../author/services/authorService';
+import { CreateBookDto } from '../../../dtos/CreateBookDto';
+import './style.css';
 
-const BookForm = () => {
-  // const [authorName, setAuthorName] = useState('');
-  // const [checked, setChecked] = React.useState(false);
+type Props = {
+  onChange: (book: CreateBookDto) => void
+};
 
-  const [bookForm, setBook] = useState({
+const BookForm: React.FC<Props> = ({ onChange }) => {
+  const [authorsList, setAuthorsList] = useState<Author[]>([]);
+
+  const [book, setBook] = useState({
     title: '',
     qtdPages: 0,
     authorName: '',
@@ -17,22 +36,31 @@ const BookForm = () => {
     size: 0,
     kindleCompatible: false
   });
-  
+
+  useEffect(() => {
+    const getAuthors = async () => {
+      const response = await authorService.getAuthors();
+      setAuthorsList(response);
+    };
+    getAuthors();
+  }, []);
+
   const createBook = async () => {
-    const response = await bookService.create(bookForm);
-    console.log(response);
+    const book: CreateBookDto = { title: '', qtdPages: 0, authorName: '', digital: false, size: 0, kindleCompatible: false };
+    const response = await bookService.create(book);
+    onChange(book);
   };
 
   const selecthandleChange = (event: SelectChangeEvent) => {
-    setBook({ ...bookForm, authorName: event.target.value });
+    setBook({ ...book, authorName: event.target.value });
   };
-  
+
   const checkhandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBook({ ...bookForm, digital: event.target.checked });
+    setBook({ ...book, digital: event.target.checked });
   };
 
   const switchhandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBook({ ...bookForm, kindleCompatible: event.target.checked });
+    setBook({ ...book, kindleCompatible: event.target.checked });
   };
 
   return (
@@ -47,8 +75,8 @@ const BookForm = () => {
               <TextField
                 fullWidth
                 label="Título"
-                value={bookForm.title}
-                onChange={(event) => setBook({ ...bookForm, title: event.target.value })}
+                value={book.title}
+                onChange={(event) => setBook({ ...book, title: event.target.value })}
               />
             </Grid>
 
@@ -56,8 +84,8 @@ const BookForm = () => {
               <TextField
                 fullWidth
                 label="Qtd páginas"
-                value={bookForm.qtdPages}
-                onChange={(event) => setBook ({ ...bookForm, qtdPages: Number(event.target.value) })}
+                value={book.qtdPages}
+                onChange={(event) => setBook({ ...book, qtdPages: Number(event.target.value) })}
               />
             </Grid>
 
@@ -67,13 +95,15 @@ const BookForm = () => {
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
-                  value={bookForm.authorName}
+                  value={book.authorName}
                   label='Autor'
                   onChange={selecthandleChange}
                 >
-                  <MenuItem value={'Robert C. Martin'}>Robert C. Martin</MenuItem>
-                  <MenuItem value={'Teste 2'}>Teste 2</MenuItem>
-                  <MenuItem value={'Teste 3'}>Teste 3</MenuItem>
+                  {authorsList.map((author, index) => (
+                    <MenuItem
+                      key={index}
+                      value={author.name}>{author.name}</MenuItem>
+                  ))}
                 </Select>
               </FormControl>
             </Grid>
@@ -82,20 +112,20 @@ const BookForm = () => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={bookForm.digital}
-                    onChange={checkhandleChange} 
+                    checked={book.digital}
+                    onChange={checkhandleChange}
                   />
                 }
                 label="É digital?"
               />
-            </Grid> 
+            </Grid>
 
             <Grid container item direction="row">
               <TextField
                 fullWidth
                 label="Tamanho em KBytes"
-                value={bookForm.size}
-                onChange={(event) => setBook ({ ...bookForm, size: Number(event.target.value) })}
+                value={book.size}
+                onChange={(event) => setBook({ ...book, size: Number(event.target.value) })}
               />
             </Grid>
 
@@ -103,11 +133,11 @@ const BookForm = () => {
               <FormControlLabel
                 control={
                   <Switch
-                    checked={bookForm.kindleCompatible}
+                    checked={book.kindleCompatible}
                     onChange={switchhandleChange}
                   />
                 }
-                label="Compativel Kindle" 
+                label="Compativel Kindle"
               />
             </Grid>
           </Grid>

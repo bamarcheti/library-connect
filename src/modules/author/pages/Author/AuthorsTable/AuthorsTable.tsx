@@ -7,19 +7,14 @@ import {
   TableHead,
   TableRow
 } from '@mui/material';
-import { useEffect, useState } from 'react';
-import authorService, { Author } from '../../../services/authorService';
+import { Author } from '../../../services/authorService';
 
-const AuthorsTable = () => {
-  const [authorsList, setAuthorsList] = useState<Author[]>([]);
+type Props = {
+  authorsList: Author[];
+  authorTitle: string;
+};
 
-  useEffect(() => {
-    const getAuthors = async() => {
-      const response = await authorService.getAuthors();
-      setAuthorsList(response);
-    };
-    getAuthors();
-  }, []);
+const AuthorsTable: React.FC<Props> = ({ authorsList, authorTitle }) => {
 
   return (
     <Card>
@@ -27,14 +22,14 @@ const AuthorsTable = () => {
         <Table sx={{ minWidth: 488 }} size="small" aria-sort="none">
           <TableHead>
             <TableRow>
-              <TableCell>Nome</TableCell>
+              <TableCell>{authorTitle}</TableCell>
               <TableCell align="center">Quantidade de livros</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {authorsList.map((author) => (
+            {authorsList.map((author,index) => (
               <TableRow
-                key={author.name}
+                key={index}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" >{author.name}</TableCell>
