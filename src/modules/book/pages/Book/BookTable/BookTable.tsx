@@ -10,17 +10,12 @@ import {
 } from '@mui/material';
 import bookService, { Book } from '../../../services/bookService';
 
-const BookTable = () => {
-  const [bookList, setBookList] = useState<Book[]>([]);
+type Props = {
+  booksList: Book[];
+};
 
-  useEffect(() => {
-    const getBooks =async () => {
-      const response = await bookService.getBooks();
-      setBookList(response);
-    };
-    getBooks();
-  }, []);
-
+const BookTable: React.FC<Props> = ({ booksList }) => {
+  
   return (
     <Card>
       <TableContainer>
@@ -33,7 +28,7 @@ const BookTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {bookList.map((book) => (
+            {booksList.map((book) => (
               <TableRow
                 key={book.title}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

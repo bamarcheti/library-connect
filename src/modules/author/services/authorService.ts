@@ -30,7 +30,9 @@ class AuthorService {
   }
   
   async getAuthors(){
-    return this.authors;
+    const authorsCopy: Author[] = [ ...this.authors ];
+
+    return authorsCopy;
   }
 }
 export default new AuthorService();
