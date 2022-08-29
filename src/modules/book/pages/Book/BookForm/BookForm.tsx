@@ -1,16 +1,15 @@
-import { 
-  Button, 
-  Card, 
-  CardActions, 
-  CardContent, 
-  FormControl, 
-  FormControlLabel, 
-  FormGroup, 
-  Grid, 
-  InputLabel, 
-  MenuItem, 
-  Select, 
-  SelectChangeEvent, 
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  FormControl,
+  FormControlLabel,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
   TextField
 } from '@mui/material';
 import React, { useState, useEffect } from 'react';
@@ -22,11 +21,13 @@ import { CreateBookDto } from '../../../dtos/CreateBookDto';
 import './style.css';
 
 type Props = {
-  onChange: (book: CreateBookDto) => void
+  onChange: (createBook: CreateBookDto) => void
 };
 
 const BookForm: React.FC<Props> = ({ onChange }) => {
   const [authorsList, setAuthorsList] = useState<Author[]>([]);
+
+  const [title, setTitle] = useState('');
 
   const [book, setBook] = useState({
     title: '',
@@ -46,9 +47,16 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
   }, []);
 
   const createBook = async () => {
-    const book: CreateBookDto = { title: '', qtdPages: 0, authorName: '', digital: false, size: 0, kindleCompatible: false };
-    const response = await bookService.create(book);
-    onChange(book);
+    const createBook: CreateBookDto = { 
+      title: title, 
+      qtdPages: book.qtdPages, 
+      authorName: book.authorName, 
+      digital: book.digital, 
+      size: book.size, 
+      kindleCompatible: book.kindleCompatible 
+    };
+    await bookService.create(createBook);
+    onChange(createBook);
   };
 
   const selecthandleChange = (event: SelectChangeEvent) => {
@@ -64,96 +72,94 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
   };
 
   return (
-    <FormGroup className='formBook'>
-      <Card className='formBook'>
-        <CardContent className='formBook'>
-          
-          <h2>CRIAR NOVO LIVRO</h2>
+    <Card className='formBook'>
+      <CardContent className='formBook'>
 
-          <Grid container direction="column" padding={2} spacing={2}>
-            <Grid container item direction="row">
-              <TextField
-                fullWidth
-                label="Título"
-                value={book.title}
-                onChange={(event) => setBook({ ...book, title: event.target.value })}
-              />
-            </Grid>
+        <h2>CRIAR NOVO LIVRO</h2>
 
-            <Grid container item direction="row">
-              <TextField
-                fullWidth
-                label="Qtd páginas"
-                value={book.qtdPages}
-                onChange={(event) => setBook({ ...book, qtdPages: Number(event.target.value) })}
-              />
-            </Grid>
-
-            <Grid container item direction="row">
-              <FormControl fullWidth>
-                <InputLabel id='demo-simple-select-label'>Autor</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  value={book.authorName}
-                  label='Autor'
-                  onChange={selecthandleChange}
-                >
-                  {authorsList.map((author, index) => (
-                    <MenuItem
-                      key={index}
-                      value={author.name}>{author.name}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Grid>
-
-            <Grid container item direction="row">
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={book.digital}
-                    onChange={checkhandleChange}
-                  />
-                }
-                label="É digital?"
-              />
-            </Grid>
-
-            <Grid container item direction="row">
-              <TextField
-                fullWidth
-                label="Tamanho em KBytes"
-                value={book.size}
-                onChange={(event) => setBook({ ...book, size: Number(event.target.value) })}
-              />
-            </Grid>
-
-            <Grid container item direction="row">
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={book.kindleCompatible}
-                    onChange={switchhandleChange}
-                  />
-                }
-                label="Compativel Kindle"
-              />
-            </Grid>
+        <Grid container direction="column" padding={2} spacing={2}>
+          <Grid container item direction="row">
+            <TextField
+              fullWidth
+              label="Título"
+              value={title}
+              onChange={(event) => setTitle( event.target.value )}
+            />
           </Grid>
-        </CardContent>
 
-        <CardActions>
-          <Button
-            size='small'
-            variant="contained"
-            onClick={createBook}
-          >
-            Salvar
-          </Button>
-        </CardActions>
-      </Card>
-    </FormGroup>
+          <Grid container item direction="row">
+            <TextField
+              fullWidth
+              label="Qtd páginas"
+              value={book.qtdPages}
+              onChange={(event) => setBook({ ...book, qtdPages: Number(event.target.value) })}
+            />
+          </Grid>
+
+          <Grid container item direction="row">
+            <FormControl fullWidth>
+              <InputLabel id='demo-simple-select-label'>Autor</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={book.authorName}
+                label='Autor'
+                onChange={selecthandleChange}
+              >
+                {authorsList.map((author, index) => (
+                  <MenuItem
+                    key={index}
+                    value={author.name}>{author.name}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid container item direction="row">
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={book.digital}
+                  onChange={checkhandleChange}
+                />
+              }
+              label="É digital?"
+            />
+          </Grid>
+
+          <Grid container item direction="row">
+            <TextField
+              fullWidth
+              label="Tamanho em KBytes"
+              value={book.size}
+              onChange={(event) => setBook({ ...book, size: Number(event.target.value) })}
+            />
+          </Grid>
+
+          <Grid container item direction="row">
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={book.kindleCompatible}
+                  onChange={switchhandleChange}
+                />
+              }
+              label="Compativel Kindle"
+            />
+          </Grid>
+        </Grid>
+      </CardContent>
+
+      <CardActions>
+        <Button
+          size='small'
+          variant="contained"
+          onClick={createBook}
+        >
+          Salvar
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 

@@ -28,9 +28,9 @@ const BookTable: React.FC<Props> = ({ booksList }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {booksList.map((book) => (
+            {booksList.map((book,index) => (
               <TableRow
-                key={book.title}
+                key={index}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" >{book.title}</TableCell>
