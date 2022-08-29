@@ -18,7 +18,7 @@ const BookPage = () => {
     getBooks();
   }, []);
 
-  const handleOnChange = async (book: CreateBookDto) => {
+  const handleOnChange = async (createBook: CreateBookDto) => {
     const response = await bookService.getBooks();
     setBooksList(response);
   };

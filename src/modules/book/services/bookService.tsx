@@ -18,7 +18,6 @@ class BookService {
   }
 
   async create(createDto: CreateBookDto) {
-    console.log(createDto);
     this.books.push({
       title: createDto.title,
       qtdPages: createDto.qtdPages,
@@ -30,7 +29,9 @@ class BookService {
   }
 
   async getBooks() {
-    return this.books;
+    const booksCopy: Book[] = [ ...this.books ];
+    
+    return booksCopy;
   }
 }
 export default new BookService();

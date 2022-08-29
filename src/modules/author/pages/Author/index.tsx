@@ -10,7 +10,6 @@ import './style.css';
 const AuthorPage = () => {
   const [authorsList, setAuthorsList] = useState<Author[]>([]);
 
-
   useEffect(() => {
     const getAuthors = async () => {
       const response = await authorService.getAuthors();
@@ -34,7 +33,7 @@ const AuthorPage = () => {
         </Card>
 
         <Card className='cardRightAuthor' variant="outlined">
-          <AuthorsTable authorsList={authorsList} authorTitle='Nome' />
+          <AuthorsTable authorsList={authorsList} authorTitle='Nome2' />
         </Card>
       </div>
     </div>
