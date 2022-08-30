@@ -1,7 +1,8 @@
 
 import { CreateAuthorDto } from '../dtos/CreateAuthorDto';
+import api from '../../_shared/api';
 
-export type Author = {name: string; qtdBooks: number; }
+export type Author = {name: string; qtdBooks: number; id?: string}
 
 class AuthorService {
   private authors: any[];
@@ -11,27 +12,19 @@ class AuthorService {
   }
 
   async create(createDto: CreateAuthorDto) {
-    // const response = axios.post('http://localhost:3001/authors', createDto);
-
-    // const response = await fetch('http://localhost:3001/authors', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(createDto),
-    // }).then((res) => res.json());
-
-    // return response;
-
     const qtdBooksRandom = Math.floor(Math.random() * 10);
     
-    this.authors.push({
-      name: createDto.name,
-      qtdBooks: qtdBooksRandom,
-    });
+    // this.authors.push({
+    //   name: createDto.name,
+    //   qtdBooks: qtdBooksRandom,
+    // });
+    await api.post('/authors', createDto);
   }
   
   async getAuthors(){
-    const authorsCopy: Author[] = [ ...this.authors ];
-
+    const request = await api.get('/authors');
+    const authorsCopy: Author[] = request.data.data;
+    
     return authorsCopy;
   }
 }

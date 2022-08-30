@@ -18,6 +18,9 @@ import Switch from '@mui/material/Switch';
 import bookService from '../../../services/bookService';
 import authorService, { Author } from '../../../../author/services/authorService';
 import { CreateBookDto } from '../../../dtos/CreateBookDto';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import './style.css';
 
 type Props = {
@@ -32,10 +35,11 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
   const [book, setBook] = useState({
     title: '',
     qtdPages: 0,
-    authorName: '',
-    digital: false,
-    size: 0,
-    kindleCompatible: false
+    authorId: '',
+    isDigital: false,
+    sizeInKBytes: 0,
+    kindleCompatible: false,
+    publishDate: '',
   });
 
   useEffect(() => {
@@ -47,24 +51,31 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
   }, []);
 
   const createBook = async () => {
-    const createBook: CreateBookDto = { 
-      title: title, 
-      qtdPages: book.qtdPages, 
-      authorName: book.authorName, 
-      digital: book.digital, 
-      size: book.size, 
-      kindleCompatible: book.kindleCompatible 
+    const createBook: CreateBookDto = {
+      title: title,
+      qtdPages: book.qtdPages,
+      authorId: book.authorId,
+      isDigital: book.isDigital,
+      sizeInKBytes: book.sizeInKBytes,
+      kindleCompatible: book.kindleCompatible,
+      publishDate: book.publishDate,
     };
     await bookService.create(createBook);
     onChange(createBook);
   };
 
   const selecthandleChange = (event: SelectChangeEvent) => {
-    setBook({ ...book, authorName: event.target.value });
+    setBook({ ...book, authorId: event.target.value });
+  };
+
+  const setPublishDate = (value: string | null) => {
+    if (value) {
+      setBook({ ...book, publishDate: value });
+    }
   };
 
   const checkhandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBook({ ...book, digital: event.target.checked });
+    setBook({ ...book, isDigital: event.target.checked });
   };
 
   const switchhandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,7 +94,7 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
               fullWidth
               label="Título"
               value={title}
-              onChange={(event) => setTitle( event.target.value )}
+              onChange={(event) => setTitle(event.target.value)}
             />
           </Grid>
 
@@ -102,14 +113,14 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
-                value={book.authorName}
+                value={book.authorId}
                 label='Autor'
                 onChange={selecthandleChange}
               >
                 {authorsList.map((author, index) => (
                   <MenuItem
                     key={index}
-                    value={author.name}>{author.name}</MenuItem>
+                    value={author.id}>{author.name}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -119,7 +130,7 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={book.digital}
+                  checked={book.isDigital}
                   onChange={checkhandleChange}
                 />
               }
@@ -131,8 +142,8 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
             <TextField
               fullWidth
               label="Tamanho em KBytes"
-              value={book.size}
-              onChange={(event) => setBook({ ...book, size: Number(event.target.value) })}
+              value={book.sizeInKBytes}
+              onChange={(event) => setBook({ ...book, sizeInKBytes: Number(event.target.value) })}
             />
           </Grid>
 
@@ -146,6 +157,18 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
               }
               label="Compativel Kindle"
             />
+          </Grid>
+
+          <Grid container item direction="row">
+            <LocalizationProvider dateAdapter={AdapterDayjs} fullWidth >
+              <DatePicker
+                label="Data da publicação"
+                inputFormat="DD/MM/YYYY"
+                value={book.publishDate}
+                onChange={(newValue?) => setPublishDate(newValue)}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
           </Grid>
         </Grid>
       </CardContent>

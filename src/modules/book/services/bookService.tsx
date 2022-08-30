@@ -1,13 +1,16 @@
+import { Author } from '../../author/services/authorService';
+import api from '../../_shared/api';
 import { CreateBookDto } from '../dtos/CreateBookDto';
 
 export type Book =
 {
   title: string; 
   qtdPages: number; 
-  authorName: string; 
-  digital: boolean;
-  size: number; 
+  author: Author; 
+  isDigital: boolean;
+  sizeInKBytes: number; 
   kindleCompatible: boolean;
+  publishDate: string;
 }
 
 class BookService {
@@ -18,18 +21,20 @@ class BookService {
   }
 
   async create(createDto: CreateBookDto) {
-    this.books.push({
-      title: createDto.title,
-      qtdPages: createDto.qtdPages,
-      authorName: createDto.authorName,
-      digital: createDto.digital,
-      size: createDto.size,
-      kindleCompatible: createDto.kindleCompatible,
-    });
+    // this.books.push({
+    //   title: createDto.title,
+    //   qtdPages: createDto.qtdPages,
+    //   authorName: createDto.authorName,
+    //   digital: createDto.digital,
+    //   size: createDto.size,
+    //   kindleCompatible: createDto.kindleCompatible,
+    // });
+    await api.post('/books', createDto);
   }
 
   async getBooks() {
-    const booksCopy: Book[] = [ ...this.books ];
+    const request = await api.get('/books');
+    const booksCopy: Book[] = request.data.data;
     
     return booksCopy;
   }

@@ -33,7 +33,7 @@ const AuthorPage = () => {
         </Card>
 
         <Card className='cardRightAuthor' variant="outlined">
-          <AuthorsTable authorsList={authorsList} authorTitle='Nome2' />
+          <AuthorsTable authorsList={authorsList} authorTitle='Nome' />
         </Card>
       </div>
     </div>

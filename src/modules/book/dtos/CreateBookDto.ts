@@ -1,8 +1,9 @@
 export interface CreateBookDto {
   title: string;
   qtdPages: number;
-  authorName: string;
-  digital: boolean;
-  size: number;
+  authorId: string;
+  isDigital: boolean;
+  sizeInKBytes: number;
   kindleCompatible: boolean;
+  publishDate?: string;
 }
