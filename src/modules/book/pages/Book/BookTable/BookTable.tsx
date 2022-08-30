@@ -11,7 +11,7 @@ import {
 import bookService, { Book } from '../../../services/bookService';
 
 type Props = {
-  booksList: Book[];
+  booksList: any[];
 };
 
 const BookTable: React.FC<Props> = ({ booksList }) => {
@@ -35,7 +35,7 @@ const BookTable: React.FC<Props> = ({ booksList }) => {
               >
                 <TableCell component="th" >{book.title}</TableCell>
                 <TableCell align="center">{book.qtdPages}</TableCell>
-                <TableCell align="center">{book.authorName}</TableCell>
+                <TableCell align="center">{book.author.name}</TableCell>
               </TableRow>
             ))}
           </TableBody>
