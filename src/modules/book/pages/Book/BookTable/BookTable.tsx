@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { 
   Card, 
   Table, 
@@ -8,7 +7,7 @@ import {
   TableHead, 
   TableRow 
 } from '@mui/material';
-import bookService, { Book } from '../../../services/bookService';
+import dayjs from 'dayjs';
 
 type Props = {
   booksList: any[];
@@ -19,12 +18,13 @@ const BookTable: React.FC<Props> = ({ booksList }) => {
   return (
     <Card>
       <TableContainer>
-        <Table sx={{ minWidth: 488 }} size="small" aria-sort="none">
+        <Table sx={{ minWidth: 600 }} size="small" aria-sort="none">
           <TableHead>
             <TableRow>
               <TableCell>Título</TableCell>
               <TableCell align="center">Qtd páginas</TableCell>
               <TableCell align="center">Autor</TableCell>
+              <TableCell align="center">Data da Publicação</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -36,6 +36,7 @@ const BookTable: React.FC<Props> = ({ booksList }) => {
                 <TableCell component="th" >{book.title}</TableCell>
                 <TableCell align="center">{book.qtdPages}</TableCell>
                 <TableCell align="center">{book.author.name}</TableCell>
+                <TableCell align="center">{dayjs(book.publishDate).format('DD/MM/YYYY')}</TableCell>
               </TableRow>
             ))}
           </TableBody>
