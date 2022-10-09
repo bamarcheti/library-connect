@@ -4,8 +4,8 @@
 }
 
 h2{
-    justify-content: left;
     display: flex;
+    justify-content: left;
     font-size: 14px;
     font-family: 'Roboto';
     margin-bottom: 10px;
