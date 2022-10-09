@@ -46,13 +46,16 @@ export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({
     // eslint-disable-next-line react/jsx-filename-extension
     <ThemeContext.Provider value={{ themeName, toggleTheme }}>
       <ThemeProvider theme={theme}>
-        <Box
-          width="100vw"
-          height="120vh"
-          bgcolor={theme.palette.background.default}
-        >
-          {children}
-        </Box>
+        <div>
+          <Box
+            width="200vw"
+            height="150vh"
+            display="table"
+            bgcolor={theme.palette.background.default}
+          >
+            {children}
+          </Box>
+        </div>
       </ThemeProvider>
     </ThemeContext.Provider>
   );
