@@ -3,16 +3,7 @@
     height: auto;
 }
 
-h2{
-    justify-content: left;
-    display: flex;
-    font-size: 14px;
-    font-family: 'Roboto';
-    margin-bottom: 10px;
-}
-
 .container-button {
     display: flex;
     justify-content: right;
-    width: 100%;
 }

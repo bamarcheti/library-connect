@@ -7,6 +7,7 @@ import {
   TextField,
 } from '@mui/material';
 import { useState } from 'react';
+import Subtitle from '../../../../../shared/components/Subtitle/Subtitle';
 import { CreateAuthorDto } from '../../../dtos/CreateAuthorDto';
 import authorService from '../../../services/authorService';
 import './style.css';
@@ -28,9 +29,9 @@ const AuthorForm: React.FC<Props> = ({ onChange }) => {
     <Card className='formAuthor'>
       <CardContent>
         
-        <h2>CRIAR NOVO AUTOR</h2>
+        <Subtitle title='CRIAR NOVO AUTOR' />
 
-        <Grid container direction="column" padding={2} spacing={2}>
+        <Grid container direction="column" padding={2} spacing={1}>
           <Grid container item direction="row">
             <TextField
               fullWidth
@@ -42,9 +43,9 @@ const AuthorForm: React.FC<Props> = ({ onChange }) => {
         </Grid>
       </CardContent>
       <CardActions>
-        <div className='container-button' >
+        <div className='container-button'>
           <Button 
-            variant="contained" 
+            variant="text" 
             size="small" 
             onClick={createAuthor}
           >

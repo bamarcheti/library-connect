@@ -5,7 +5,7 @@ type Props = {
 };
 
 const MainTitle: React.FC<Props> = ({ title }) => {
-  return <Typography variant='h1' padding={4}>{title}</Typography>;
+  return <Typography variant='h1' sx={{ typography: 'subtitle2', fontSize: '24px' }} padding={4}>{title}</Typography>;
 };
 
 export default MainTitle;

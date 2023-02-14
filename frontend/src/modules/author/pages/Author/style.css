@@ -2,20 +2,10 @@
     position: absolute;
     width: auto;
     height: auto;
-    left: 52px;
-    
     display: flex;
     flex-direction: column;
     align-items: left;
-
     color: #4F4F4F;
-}
-
-.h1{
-    justify-content: left;
-    display: flex;
-    font-size: 25px;
-    font-family: 'Roboto';
 }
 
 .cardLeftAuthor{
@@ -24,8 +14,7 @@
     height: auto;
     left: 41px;
     top: 120px;
-
-    background: #FFFFFF;
+    flex: 1;
     border-radius: 6px;
 }
 
@@ -35,7 +24,6 @@
     height: auto;
     left: 589px;
     top: 120px;
-
-    background: #FFFFFF;
+    flex: 1;
     border-radius: 6px;
 }

@@ -10,17 +10,19 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
-  TextField
+  TextField,
+  useTheme
 } from '@mui/material';
-import React, { useState, useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import Switch from '@mui/material/Switch';
-import bookService from '../../../services/bookService';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import React, { useEffect, useState } from 'react';
+import Subtitle from '../../../../../shared/components/Subtitle/Subtitle';
 import authorService, { Author } from '../../../../author/services/authorService';
 import { CreateBookDto } from '../../../dtos/CreateBookDto';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import bookService from '../../../services/bookService';
 import './style.css';
 
 type Props = {
@@ -29,7 +31,7 @@ type Props = {
 
 const BookForm: React.FC<Props> = ({ onChange }) => {
   const [authorsList, setAuthorsList] = useState<Author[]>([]);
-
+  const theme = useTheme();
   const [title, setTitle] = useState('');
 
   const [book, setBook] = useState({
@@ -86,7 +88,7 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
     <Card className='formBook'>
       <CardContent className='formBook'>
 
-        <h2>CRIAR NOVO LIVRO</h2>
+        <Subtitle title='CRIAR NOVO LIVRO' />
 
         <Grid container direction="column" padding={2} spacing={2}>
           <Grid container item direction="row">
@@ -174,13 +176,15 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
       </CardContent>
 
       <CardActions>
-        <Button
-          size='small'
-          variant="contained"
-          onClick={createBook}
-        >
+        <div className='container-button'>
+          <Button
+            size='small'
+            variant="text"
+            onClick={createBook}
+          >
           Salvar
-        </Button>
+          </Button>
+        </div>
       </CardActions>
     </Card>
   );

@@ -4,16 +4,15 @@ export const DarkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#25B79D',
+      main: '#25B790',
       dark: '#36cfb3',
       light: '#42dbc0',
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#64b5f6',
-      dark: '#42a5f5',
-      light: '#90caf9',
-      contrastText: '#FFFFFF',
+      main: '#FFFF',
+      dark: '#DDDD',
+      light: '#DDDD'
     },
     background: {
       paper: '#303134',
@@ -25,18 +24,17 @@ export const DarkTheme = createTheme({
       fontFamily: 'Roboto',
       fontStyle: 'normal',
       fontSize: '25px',
-
       display: 'flex',
       alignItems: 'flex-end',
-
       color: '#FFFFFF',
     },
     h2: {
-      color: '#FFFFFF',
       fontFamily: 'Roboto',
       fontStyle: 'medium',
-      fontSize: '14px',
-      lineHeight: '24px'
+      fontSize: '20px',
+      display: 'flex',
+      lineHeight: '24px',
+      color: '#FFFFFF'
     },
   },
 });

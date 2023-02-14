@@ -10,10 +10,9 @@ export const LightTheme = createTheme({
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#64b5f6',
-      dark: '#42a5f5',
-      light: '#90caf9',
-      contrastText: '#FFFFFF',
+      main: '#FFFF',
+      dark: '#DDDD',
+      light: '#DDDD'
     },
     background: {
       paper: '#FFFFFF',
@@ -25,18 +24,17 @@ export const LightTheme = createTheme({
       fontFamily: 'Roboto',
       fontStyle: 'normal',
       fontSize: '25px',
-
       display: 'flex',
       alignItems: 'flex-end',
-
       color: '#4F4F4F',
     },
     h2: {
-      color: '#4F4F4F',
       fontFamily: 'Roboto',
       fontStyle: 'medium',
       fontSize: '14px',
-      lineHeight: '24px'
+      display: 'flex',
+      lineHeight: '24px',
+      color: '#4F4F4F'
     },
   },
 });

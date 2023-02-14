@@ -29,7 +29,7 @@ export const Menu = () => {
           setValue(newValue);
         }}
         sx={{
-          background: '#25B79D',
+          background: '#10977e',
           fontFamily: 'Roboto',
           width: '100%',
         }}
