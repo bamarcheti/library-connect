@@ -2,7 +2,7 @@
   "name": "treinamento-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Bamarcheti.github.io/treinamento-react",
+  "homepage": "http://Bamarcheti.github.io/treinamento-react/",
   "scripts": {
     "start": "set PORT=3006 && react-scripts start",
     "build": "react-scripts build",
