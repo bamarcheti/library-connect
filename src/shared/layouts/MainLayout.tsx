@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import React from 'react';
-import { Menu } from '../components/Menu/Menu';
+import { Menu } from '../components/Menu';
 
 interface Props {
   children: React.ReactNode;

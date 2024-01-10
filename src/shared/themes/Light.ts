@@ -12,7 +12,7 @@ export const LightTheme = createTheme({
     secondary: {
       main: '#FFFF',
       dark: '#DDDD',
-      light: '#DDDD'
+      light: '#DDDD',
     },
     background: {
       paper: '#FFFFFF',
@@ -34,7 +34,7 @@ export const LightTheme = createTheme({
       fontSize: '14px',
       display: 'flex',
       lineHeight: '24px',
-      color: '#4F4F4F'
+      color: '#4F4F4F',
     },
   },
 });

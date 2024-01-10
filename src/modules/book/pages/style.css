@@ -1,0 +1,29 @@
+.boxBook {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  color: #4f4f4f;
+}
+
+.cardLeftBook {
+  position: absolute;
+  width: 510px;
+  height: auto;
+  left: 41px;
+  top: 120px;
+  flex: 1;
+  border-radius: 6px;
+}
+
+.cardRightBook {
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 589px;
+  top: 120px;
+  flex: 1;
+  border-radius: 6px;
+}

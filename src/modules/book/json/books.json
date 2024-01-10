@@ -1,0 +1,209 @@
+[
+  {
+    "title": "Clean Code ",
+    "qtdPages": 500,
+    "author": {
+      "name": "Luis",
+      "qtdBooks": 8,
+      "id": "630d0f95c740ed562dca4b3a"
+    },
+    "publishDate": "2021-09-01T00:00:00.000Z",
+    "id": "630d10f5c740ed562dca4b40"
+  },
+  {
+    "title": "Arquitetura Limpa ",
+    "qtdPages": 500,
+    "author": {
+      "name": "Guilherme",
+      "qtdBooks": 7,
+      "id": "630d0f83c740ed562dca4b38"
+    },
+    "publishDate": "2021-09-01T00:00:00.000Z",
+    "id": "630d113bc740ed562dca4b45"
+  },
+  {
+    "title": "Arquitetura Limpa ",
+    "qtdPages": 500,
+    "author": {
+      "name": "Guilherme",
+      "qtdBooks": 7,
+      "id": "630d0f83c740ed562dca4b38"
+    },
+    "publishDate": "2021-09-01T00:00:00.000Z",
+    "id": "630e30986560a1adcc0d5cf7"
+  },
+  {
+    "title": "Arquitetura Limpa ",
+    "qtdPages": 500,
+    "author": {
+      "name": "Guilherme",
+      "qtdBooks": 7,
+      "id": "630d0f83c740ed562dca4b38"
+    },
+    "publishDate": "2021-09-01T00:00:00.000Z",
+    "id": "630e48f63e43f5c9243c6cd6"
+  },
+  {
+    "title": "Arquitetura Limpa 2",
+    "qtdPages": 500,
+    "author": {
+      "name": "Guilherme",
+      "qtdBooks": 7,
+      "id": "630d0f83c740ed562dca4b38"
+    },
+    "publishDate": "2021-09-01T00:00:00.000Z",
+    "id": "630e49563e43f5c9243c6cdc",
+    "sizeInKBytes": 32,
+    "kindleCompatible": false
+  },
+  {
+    "title": "Arquitetura Limpa 2",
+    "qtdPages": 500,
+    "author": {
+      "name": "Guilherme",
+      "qtdBooks": 7,
+      "id": "630d0f83c740ed562dca4b38"
+    },
+    "publishDate": "2021-09-01T00:00:00.000Z",
+    "id": "630e49773e43f5c9243c6ce1",
+    "sizeInKBytes": 32,
+    "kindleCompatible": true
+  },
+  {
+    "title": "Arquitetura Limpa 2",
+    "qtdPages": 500,
+    "author": {
+      "name": "Guilherme",
+      "qtdBooks": 7,
+      "id": "630d0f83c740ed562dca4b38"
+    },
+    "publishDate": "2021-09-01T00:00:00.000Z",
+    "id": "630e497f3e43f5c9243c6ce6",
+    "sizeInKBytes": 32,
+    "kindleCompatible": false
+  },
+  {
+    "title": "Arquitetura Limpa 2",
+    "qtdPages": 500,
+    "author": {
+      "name": "Guilherme",
+      "qtdBooks": 7,
+      "id": "630d0f83c740ed562dca4b38"
+    },
+    "publishDate": "2021-09-01T00:00:00.000Z",
+    "id": "630e4e7b3e43f5c9243c6d0c",
+    "sizeInKBytes": 32,
+    "kindleCompatible": false
+  },
+  {
+    "title": "fdsfsdfsdf",
+    "qtdPages": 222,
+    "author": {
+      "name": "Luis",
+      "qtdBooks": 8,
+      "id": "630d0f95c740ed562dca4b3a"
+    },
+    "publishDate": "2022-08-30T04:00:00.000Z",
+    "id": "630e69553e43f5c9243c6d3f",
+    "sizeInKBytes": 4343,
+    "kindleCompatible": false
+  },
+  {
+    "title": "Harry Architecture",
+    "qtdPages": 4000,
+    "author": {
+      "name": "Luis",
+      "qtdBooks": 8,
+      "id": "630d0f95c740ed562dca4b3a"
+    },
+    "publishDate": "1976-08-03T20:38:00.000Z",
+    "id": "630e753a3e43f5c9243c6d69",
+    "sizeInKBytes": 100,
+    "kindleCompatible": true
+  },
+  {
+    "title": "Trilogia Harry Potter",
+    "qtdPages": 500,
+    "author": {
+      "name": "Luis",
+      "qtdBooks": 8,
+      "id": "630d0f95c740ed562dca4b3a"
+    },
+    "publishDate": "2022-08-03T04:00:00.000Z",
+    "id": "630e774185f012afbcd734d4"
+  },
+  {
+    "title": "Trilogia Harry Potter",
+    "qtdPages": 500,
+    "author": {
+      "name": "Luis",
+      "qtdBooks": 8,
+      "id": "630d0f95c740ed562dca4b3a"
+    },
+    "publishDate": "2022-08-03T00:00:00.000Z",
+    "id": "630e77b785f012afbcd734df"
+  },
+  {
+    "title": "Harry Architecture",
+    "qtdPages": 4000,
+    "author": {
+      "name": "Luis",
+      "qtdBooks": 8,
+      "id": "630d0f95c740ed562dca4b3a"
+    },
+    "publishDate": "1976-08-03T00:00:00.000Z",
+    "id": "630e77b785f012afbcd734e7",
+    "sizeInKBytes": 100,
+    "kindleCompatible": true
+  },
+  {
+    "title": "Trilogia Harry Potter",
+    "qtdPages": 500,
+    "author": {
+      "name": "Luis",
+      "qtdBooks": 8,
+      "id": "630d0f95c740ed562dca4b3a"
+    },
+    "publishDate": "2022-08-03T00:00:00.000Z",
+    "id": "630e782e85f012afbcd734f5"
+  },
+  {
+    "title": "Harry Architecture",
+    "qtdPages": 4000,
+    "author": {
+      "name": "Luis",
+      "qtdBooks": 8,
+      "id": "630d0f95c740ed562dca4b3a"
+    },
+    "publishDate": "1976-08-03T00:00:00.000Z",
+    "id": "630e782e85f012afbcd734fc",
+    "sizeInKBytes": 100,
+    "kindleCompatible": true
+  },
+  {
+    "title": "Aonde caminhava o homem",
+    "qtdPages": 16,
+    "author": {
+      "name": "Teodoro Marques",
+      "qtdBooks": 1,
+      "id": "630e786285f012afbcd73504"
+    },
+    "publishDate": "2020-08-13T04:00:00.000Z",
+    "id": "630e789685f012afbcd7350c",
+    "sizeInKBytes": 20,
+    "kindleCompatible": true
+  },
+  {
+    "title": "Panda",
+    "qtdPages": 53,
+    "author": {
+      "name": "Lui",
+      "qtdBooks": 1,
+      "id": "630f79a52d3ee4191bebf06f"
+    },
+    "publishDate": "2018-07-31T04:00:00.000Z",
+    "id": "630f7a0f2d3ee4191bebf077",
+    "sizeInKBytes": 12,
+    "kindleCompatible": true
+  }
+]

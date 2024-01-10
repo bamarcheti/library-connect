@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import AuthorPage from '../modules/author/pages/Author';
-import BookPage from '../modules/book/pages/Book/index';
+import AuthorPage from '../modules/author/pages';
+import BookPage from '../modules/book/pages';
 
 export const AppRoutes = () => {
   return (

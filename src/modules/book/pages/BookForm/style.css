@@ -1,0 +1,10 @@
+.formBook {
+  width: auto;
+  height: auto;
+}
+
+.container-button {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}

@@ -12,7 +12,7 @@ export const DarkTheme = createTheme({
     secondary: {
       main: '#FFFF',
       dark: '#DDDD',
-      light: '#DDDD'
+      light: '#DDDD',
     },
     background: {
       paper: '#303134',
@@ -34,7 +34,7 @@ export const DarkTheme = createTheme({
       fontSize: '20px',
       display: 'flex',
       lineHeight: '24px',
-      color: '#FFFFFF'
+      color: '#FFFFFF',
     },
   },
 });
