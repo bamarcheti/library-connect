@@ -3,9 +3,9 @@
 ![preview_light](./.github/preview_light.png)
 ![preview_dark](./.github/preview_dark.png)
 
-Projeto construído durante treinamento de React feito com Material UI.
+Projeto construído durante treinamento de React feito com Material UI. Sendo um projeto de gerenciamento de autores e livros em que é possível criar e listar ambos.
 
-[🔗 Clique aqui para acessar](https://bamarcheti.github.io/MeuCurriculo/)
+[🔗 Clique aqui para acessar](https://library-connect.vercel.app/)
 
 ## **🛠 Tecnologias**
 
