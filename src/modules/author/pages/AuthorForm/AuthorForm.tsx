@@ -1,14 +1,9 @@
 import { Grid, TextField } from '@mui/material';
 import { useState } from 'react';
 import ContentForm from '../../../../shared/components/ContentForm';
-import { CreateAuthorDto } from '../../dto/CreateAuthorDto';
 import './style.css';
 
-type Props = {
-  onChange: (author: CreateAuthorDto) => void;
-};
-
-const AuthorForm: React.FC<Props> = ({ onChange }) => {
+const AuthorForm = () => {
   const [name, setName] = useState('');
   const authors = '../json/authors.json';
 
