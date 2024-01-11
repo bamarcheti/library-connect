@@ -13,16 +13,21 @@ import Switch from '@mui/material/Switch';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import React, { useEffect, useState } from 'react';
-import { readJsonFile, writeJsonFile } from '../../../../_shared/jsonHelpers';
 import ContentForm from '../../../../shared/components/ContentForm';
 import authorService, { Author } from '../../../author/services/authorService';
 import { CreateBookDto } from '../../dto/CreateBookDto';
-import bookService from '../../services/bookService';
 import './style.css';
 
 type Props = {
   onChange: (createBook: CreateBookDto) => void;
 };
+
+const listAuthors = [
+  { name: 'Luis' },
+  { name: 'Bárbara' },
+  { name: 'Marcelo' },
+  { name: 'Teodoro Marques' },
+];
 
 const BookForm: React.FC<Props> = ({ onChange }) => {
   const [authorsList, setAuthorsList] = useState<Author[]>([]);
@@ -49,29 +54,40 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
   }, []);
 
   const createBook = async () => {
-    if (!title.trim() || !book.qtdPages || !book.authorId) {
-      return;
+    const areFieldsFilled =
+      title.trim() !== '' &&
+      book.qtdPages !== 0 &&
+      book.authorId !== '' &&
+      book.sizeInKBytes !== 0 &&
+      book.publishDate !== '';
+
+    if (areFieldsFilled) {
+      window.alert('Livro Criado com Sucesso!✅');
+    } else {
+      window.alert(
+        'Erro ao Criar Livro: Preencha todos os campos obrigatórios.❌',
+      );
     }
 
-    const createBook: CreateBookDto = {
-      title: title,
-      qtdPages: book.qtdPages,
-      authorId: book.authorId,
-      isDigital: book.isDigital,
-      sizeInKBytes: book.sizeInKBytes,
-      kindleCompatible: book.kindleCompatible,
-      publishDate: book.publishDate,
-    };
+    // const dataBook: CreateBookDto = {
+    //   title: title,
+    //   qtdPages: book.qtdPages,
+    //   authorId: book.authorId,
+    //   isDigital: book.isDigital,
+    //   sizeInKBytes: book.sizeInKBytes,
+    //   kindleCompatible: book.kindleCompatible,
+    //   publishDate: book.publishDate,
+    // };
 
-    try {
-      await bookService.create(createBook);
-      onChange(createBook);
-      const existingBooks = readJsonFile(books);
-      existingBooks.push(createBook);
-      writeJsonFile(books, existingBooks);
-    } catch (error) {
-      console.log('Erro ao criar livro:', error);
-    }
+    // try {
+    //   await bookService.create(dataBook);
+    //   onChange(dataBook);
+    //   const existingBooks = readJsonFile(books);
+    //   existingBooks.push(dataBook);
+    //   writeJsonFile(books, existingBooks);
+    // } catch (error) {
+    //   console.log('Erro ao criar livro:', error);
+    // }
   };
 
   const selecthandleChange = (event: SelectChangeEvent) => {
@@ -134,8 +150,8 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
             label="Autor"
             onChange={selecthandleChange}
           >
-            {authorsList.map((author, index) => (
-              <MenuItem key={index} value={author.id}>
+            {listAuthors.map((author, index) => (
+              <MenuItem key={index} value={author.name}>
                 {author.name}
               </MenuItem>
             ))}
