@@ -21,7 +21,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     indent: ['error', 2],
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': 0,
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'react/prop-types': 'off',
