@@ -9,29 +9,29 @@ import './style.css';
 const BookPage = () => {
   const [booksList, setBooksList] = useState([]);
 
-  useEffect(() => {
-    const getBooks = () => {
-      const books = readJsonFile('../json/books.json');
-      setBooksList(books);
-    };
+  // useEffect(() => {
+  //   const getBooks = () => {
+  //     const books = readJsonFile('../json/books.json');
+  //     setBooksList(books);
+  //   };
 
-    getBooks();
-  }, []);
+  //   getBooks();
+  // }, []);
 
-  const handleOnChange = async () => {
-    const books = readJsonFile('../json/books.json');
-    setBooksList(books);
-  };
+  // const handleOnChange = async () => {
+  //   const books = readJsonFile('../json/books.json');
+  //   setBooksList(books);
+  // };
 
-  const readJsonFile = (filePath: string) => {
-    try {
-      const fileData = fs.readFileSync(filePath, 'utf-8');
-      return JSON.parse(fileData);
-    } catch (error) {
-      console.log(error);
-      return [];
-    }
-  };
+  // const readJsonFile = (filePath: string) => {
+  //   try {
+  //     const fileData = fs.readFileSync(filePath, 'utf-8');
+  //     return JSON.parse(fileData);
+  //   } catch (error) {
+  //     console.log(error);
+  //     return [];
+  //   }
+  // };
 
   return (
     <div className="boxBook">
@@ -39,11 +39,11 @@ const BookPage = () => {
 
       <div>
         <Card className="cardLeftBook" variant="outlined">
-          <BookForm onChange={handleOnChange} />
+          <BookForm />
         </Card>
 
         <Card className="cardRightBook" variant="outlined">
-          <BookTable booksList={booksList} />
+          <BookTable />
         </Card>
       </div>
     </div>

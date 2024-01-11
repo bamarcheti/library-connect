@@ -12,15 +12,9 @@ import Checkbox from '@mui/material/Checkbox';
 import Switch from '@mui/material/Switch';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ContentForm from '../../../../shared/components/ContentForm';
-import authorService, { Author } from '../../../author/services/authorService';
-import { CreateBookDto } from '../../dto/CreateBookDto';
 import './style.css';
-
-type Props = {
-  onChange: (createBook: CreateBookDto) => void;
-};
 
 const listAuthors = [
   { name: 'Luis' },
@@ -29,11 +23,11 @@ const listAuthors = [
   { name: 'Teodoro Marques' },
 ];
 
-const BookForm: React.FC<Props> = ({ onChange }) => {
-  const [authorsList, setAuthorsList] = useState<Author[]>([]);
+const BookForm = () => {
+  // const [authorsList, setAuthorsList] = useState<Author[]>([]);
   const [title, setTitle] = useState('');
   const [cleared, setCleared] = React.useState<boolean>(false);
-  const books = '../json/books.json';
+  // const books = '../json/books.json';
 
   const [book, setBook] = useState({
     title: '',
@@ -45,13 +39,13 @@ const BookForm: React.FC<Props> = ({ onChange }) => {
     publishDate: '',
   });
 
-  useEffect(() => {
-    const getAuthors = async () => {
-      const response = await authorService.getAuthors();
-      setAuthorsList(response);
-    };
-    getAuthors();
-  }, []);
+  // useEffect(() => {
+  //   const getAuthors = async () => {
+  //     const response = await authorService.getAuthors();
+  //     setAuthorsList(response);
+  //   };
+  //   getAuthors();
+  // }, []);
 
   const createBook = async () => {
     const areFieldsFilled =
