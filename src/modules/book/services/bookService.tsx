@@ -1,4 +1,4 @@
-import api from '../../../_shared/api';
+import api from '../../../shared/server/api';
 import { Author } from '../../author/services/authorService';
 import { CreateBookDto } from '../dto/CreateBookDto';
 

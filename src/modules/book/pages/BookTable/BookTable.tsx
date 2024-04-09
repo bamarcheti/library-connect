@@ -8,7 +8,7 @@ import {
   TableRow,
 } from '@mui/material';
 import dayjs from 'dayjs';
-import { TableColumn } from '../../../../_shared/Table';
+import { TableColumn } from '../../../../shared/models/Table';
 
 type Book = {
   title: string;

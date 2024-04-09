@@ -7,7 +7,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import { TableColumn } from '../../../../_shared/Table';
+import { TableColumn } from '../../../../shared/models/Table';
 
 type Author = {
   name: string;

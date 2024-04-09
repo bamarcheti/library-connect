@@ -1,4 +1,4 @@
-import api from '../../../_shared/api';
+import api from '../../../shared/server/api';
 import { CreateAuthorDto } from '../dto/CreateAuthorDto';
 
 export type Author = { name: string; qtdBooks: number; id?: string };
